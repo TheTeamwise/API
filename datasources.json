@@ -13,5 +13,13 @@
   "mail": {
     "defaultForType": "mail",
     "connector": "mail"
+  },
+  "pg": {
+    "connector": "loopback-connector-postgresql",
+    "host": "localhost",
+    "port": 5432,
+    "database": "teamwise",
+    "username": "tw",
+    "password": "123456"
   }
 }

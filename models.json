@@ -1,7 +1,21 @@
 {
   "email": {
     "options": {
-      "base": "Email"
+      "base": "Email",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "mail",
     "public": false
@@ -15,35 +29,105 @@
           "type": "hasMany",
           "foreignKey": "userId"
         }
-      }
+      },
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "accessToken": {
     "options": {
-      "base": "AccessToken"
+      "base": "AccessToken",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": true
   },
   "application": {
     "options": {
-      "base": "Application"
+      "base": "Application",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": true
   },
   "acl": {
     "options": {
-      "base": "ACL"
+      "base": "ACL",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": false
   },
   "roleMapping": {
     "options": {
-      "base": "RoleMapping"
+      "base": "RoleMapping",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": false
@@ -57,14 +141,42 @@
           "model": "roleMapping",
           "foreignKey": "roleId"
         }
-      }
+      },
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": false
   },
   "scope": {
     "options": {
-      "base": "Scope"
+      "base": "Scope",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": false
@@ -72,22 +184,152 @@
   "push": {
     "options": {
       "base": "Push",
-      "plural": "push"
+      "plural": "push",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "push"
   },
   "installation": {
     "options": {
-      "base": "Installation"
+      "base": "Installation",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": true
   },
   "notification": {
     "options": {
-      "base": "Notification"
+      "base": "Notification",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
     },
     "dataSource": "db",
     "public": true
+  },
+  "account": {
+    "options": {
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$owner"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
+    },
+    "properties": {
+      "firstname": {
+        "type": "string"
+      },
+      "lastname": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "teams": {
+        "type": "array"
+      }
+    },
+    "public": true,
+    "dataSource": "pg",
+    "plural": "accounts"
+  },
+  "team": {
+    "options": {
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$owner"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
+    },
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "site": {
+        "type": "string"
+      },
+      "owner": {
+        "type": "number"
+      },
+      "members": {
+        "type": "number"
+      },
+      "projects": {
+        "type": "number"
+      }
+    },
+    "public": true,
+    "dataSource": "pg",
+    "plural": "teams"
   }
 }
