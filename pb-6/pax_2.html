@@ -1,0 +1,1085 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Победа</title>
+    
+    <link rel="stylesheet" href="css/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="js/chosen/chosen.min.css" type="text/css" />
+    <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jscrollpane/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/chosen/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    
+    <!--[if lte IE 8]> 
+      <script type="text/javascript" src="js/selectivizr-min.js"></script>
+      <script type="text/javascript" src="js/ie.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+      <div id="header">        
+        <ul class="menu-steps blue">
+          <div>
+            <li class="done"><span>поиск билетов</span></li>
+            <li class="done"><span>выбор рейса</span></li>
+            <li class="done"><span>пассажиры</span></li>
+            <li class="active"><span>багаж</span></li>
+            <li><span>выбор места</span></li>
+            <li><span>оплата</span></li>
+          </div>
+          <div class="clrfix"></div>
+        </ul>
+      </div>
+    </header>
+    
+    <content>
+      
+        <div class="modalbox">
+          <div class="bg"></div>
+          <div class="window" id="without-baggage">
+            <div class="window-inner">
+              <div class="top">
+                <h3>Не выбран багаж!</h3>
+                <p>
+                  Обратите внимание, по крайней мере для одного пассажира не выбран багаж.<br />
+                  В аэропорту багаж будет стоить дороже. Если вы хотите заказть по выгодной цене сайта,<br />
+                  сделайте это сейчас или после окончания бронирования, воспользовавшись сервисами<br />
+                  «Управление бронированием» и «Личный кабинет».
+                </p>
+              </div>
+              <div class="bottom">
+                <button class="btn tr small float-left close-button">Добавить багаж</button>
+                <button class="btn small float-right pax-continue">Продолжить без выбора багажа</button>
+                <div class="clrfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div id="content">
+        <h2>Багаж</h2>
+        
+        <div class="pax"> 
+          <form action="seat.html" method="post" id="pax-form">
+            <div class="column-left">
+              <div class="info baggage">                
+                <div class="mess">
+                  <h3>Каждый пассажир может провезти бесплатно</h3>
+                  
+                  <div class="column float-left">
+                    <img src="i/svg/baggage-1.svg" width="80px" alt=""/>
+                    <div class="text">
+                      <strong>Личные вещи в салоне самолета:</strong><br />
+                      Дамскую сумочку или портфель; зонтик, трость;<br />
+                      букет цветов; верхнюю одежду, костюм<br />
+                      в портпледе; печатные издания для чтения<br />
+                      в полете; портативный компьютер.
+                    </div>
+                  </div>
+                  <div class="column float-right">
+                    <img src="i/svg/baggage-2.svg" width="80px" alt=""/>
+                    <div class="text">
+                      <strong>Одно место багажа в багажном отсеке:</strong><br />
+                      Весом до 10 кг. Размеры бесплатного места<br />
+                      не должны превышать 158 сантиметров<br />
+                      в трех измерениях. Багаж разных пассажиров<br />
+                      не объединяется.
+                    </div>
+                  </div>
+                  <div class="clrfix"></div>
+                  
+                  <h3>
+                    Если вам нужен дополнительный багаж — <br />
+                    закажите его сейчас, в аэропорту будет дороже!
+                  </h3>
+                  
+                  <div class="notice">
+                    <img src="i/svg/warn-blue.svg" width="16px" alt=""/>
+                    Рюкзаки, пакеты, коробки упакованные в отдельную тару продукты питания, пляжные<br />
+                    и спортивные сумки допускаются к перевозке в салоне самолета только за плату.<br />
+                    Пожалуйста, ознакомьтесь с <a href="#">подробными правилами перевозки багажа в салоне самолета.</a>
+                  </div>
+                </div>
+                
+                <div class="baggage-passenger open">
+                  <div class="header">
+                    <h3>Константинопольская Александра</h3>
+                    <div class="arrow"></div>
+                    <div class="clrfix"></div>
+                  </div>
+                  
+                  <div class="sub">
+                    <div class="info-section from">
+                      <div class="select">
+                        <div class="header">
+                          <span>Москва (Внуково)</span> VKO
+                          <img src="i/svg/plane.svg" alt=""/>
+                          <span>Ханты-Мансийск</span> HMA
+                        </div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="list">
+                        <div class="inner"></div>
+                        
+                        <div class="clrfix"></div>
+
+                        <div class="add-outer"> 
+                          <div class="addBaggage">
+                            <input type="hidden" name="baggageList-from-1" id="baggageList"/>
+                            <input type="hidden" name="totalBaggagePrice-from-1" id="totalBaggagePrice"/>
+                            
+                            <h3>Добавьте багаж (включены личные вещи в салон и 1 багажное место)</h3>
+                            <div class="body">
+                              <div class="column float-left">
+                                <div class="section" id="bag-0">
+                                  <div class="sec-title radios">багаж в салон</div>
+                                  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-1" id="baggage-salon-null-1" class="null" value="without" checked />
+                                      <label for="baggage-salon-null-1">без багажа в салоне</label>
+                                    </div>
+                                    <div class="float-right">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-1" id="baggage-salon-oneplace-1" value="oneplace"/>
+                                      <label for="baggage-salon-oneplace-1">багаж в салоне <br /> до 10 кг (1 место)</label>
+                                    </div>
+                                    <div class="float-right">1 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-1" id="baggage-salon-twoplace-1" value="twoplace"/>
+                                      <label for="baggage-salon-twoplace-1">багаж в салоне <br /> до 10 + 10 кг (2 места)</label>
+                                    </div>
+                                    <div class="float-right">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                                <div class="section baggage-salon">
+                                  <div class="sec-title">багаж в багажный салон</div>
+                                  
+                                  <div class="counter-line checkbox">
+                                    <div class="title">
+                                      <input type="radio" name="nobaggage-1" id="nobaggage-1" checked />
+                                      <label for="nobaggage-1">багаж до 10 кг<br /> (1 место)</label>
+                                    </div>
+                                    <div class="price">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-1">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 20 кг <br /> (1 место)</div>
+                                    <div class="price">2 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-2">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 32 кг <br /> (1 место)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-3">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж <br /> до 20 + 20 кг <br /> (2 местa)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="column float-right">
+                                <div class="section">
+                                  <div class="sec-title">специальный багаж и животные</div>
+                                  
+                                  <div class="counter-line checkbox" id="bag-pets">
+                                    <div class="title">
+                                      <input type="checkbox" name="pets" id="pets-1" value="1"/>
+                                      <label for="pets-1">домашнее животное <br />в переноске (1 шт до 8 кг)</label>
+                                    </div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-4">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">оружие <br />(1 шт, до 10 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-5">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">специальный <br />багаж <br />(весом до 20 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="notice">
+                                    Комплект спортивного оборудования<br />
+                                    (для горных видов спорта, хоккея, гольфа,<br />
+                                    серфинга), велосипед, музыкальные<br />
+                                    инструменты и прочий нестандартный<br />
+                                    багаж весом до 20 кг.
+                                  </div>
+                                  
+                                  <div class="notice red">
+                                    <img src="i/svg/warn.svg" alt=""/> Рюкзаки, пакеты, коробки, пляжные<br />
+                                    и спортивные сумки перевозятся в салоне <br />
+                                    самолета платно
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="clrfix"></div>
+                            </div>
+                            <div class="button">
+                              <div class="btn tr small" id="countBaggage">Выбрать</div>
+                            </div>
+                            <div class="arrow"></div>
+                          </div>
+
+                          <div class="element add">
+                            <div class="button add"></div>
+                            <div class="title">добавить багаж</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          <div class="clrfix"></div>
+                        </div> 
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="info-section back">
+                      <div class="select">
+                        <div class="header">
+                          <span>Ханты-Мансийск</span> HMA
+                          <img src="i/svg/plane.svg" alt=""/>
+                          <span>Москва (Внуково)</span> VKO
+                        </div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="list">
+                        <div class="inner"></div>
+                        
+                        <div class="clrfix"></div>
+                        <div class="add-outer"> 
+                          <div class="addBaggage">
+                            <input type="hidden" name="baggageList-back-1" id="baggageList"/>
+                            <input type="hidden" name="totalBaggagePrice-back-1" id="totalBaggagePrice"/>
+                            
+                            <h3>Добавьте багаж (включены личные вещи в салон и 1 багажное место)</h3>
+                            <div class="body">
+                              <div class="column float-left">
+                                <div class="section" id="bag-0">
+                                  <div class="sec-title radios">багаж в салон</div>
+                                  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-2" id="baggage-salon-null-2" class="null" value="without" checked />
+                                      <label for="baggage-salon-null-2">без багажа в салоне</label>
+                                    </div>
+                                    <div class="float-right">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-2" id="baggage-salon-oneplace-2" value="oneplace"/>
+                                      <label for="baggage-salon-oneplace-2">багаж в салоне <br /> до 10 кг (1 место)</label>
+                                    </div>
+                                    <div class="float-right">1 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-2" id="baggage-salon-twoplace-2" value="twoplace"/>
+                                      <label for="baggage-salon-twoplace-2">багаж в салоне <br /> до 10 + 10 кг (2 места)</label>
+                                    </div>
+                                    <div class="float-right">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                                <div class="section baggage-salon">
+                                  <div class="sec-title">багаж в багажный салон</div>
+                                  
+                                  <div class="counter-line checkbox">
+                                    <div class="title">
+                                      <input type="radio" name="nobaggage-2" id="nobaggage-2" checked />
+                                      <label for="nobaggage-2">багаж до 10 кг<br /> (1 место)</label>
+                                    </div>
+                                    <div class="price">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-1">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 20 кг <br /> (1 место)</div>
+                                    <div class="price">2 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-2">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 32 кг <br /> (1 место)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-3">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж <br /> до 20 + 20 кг <br /> (2 местa)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="column float-right">
+                                <div class="section">
+                                  <div class="sec-title">специальный багаж и животные</div>
+                                  
+                                  <div class="counter-line checkbox" id="bag-pets">
+                                    <div class="title">
+                                      <input type="checkbox" name="pets" id="pets-2" value="1"/>
+                                      <label for="pets-2">домашнее животное <br />в переноске (1 шт до 8 кг)</label>
+                                    </div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-4">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">оружие <br />(1 шт, до 10 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-5">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">специальный <br />багаж <br />(весом до 20 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="notice">
+                                    Комплект спортивного оборудования<br />
+                                    (для горных видов спорта, хоккея, гольфа,<br />
+                                    серфинга), велосипед, музыкальные<br />
+                                    инструменты и прочий нестандартный<br />
+                                    багаж весом до 20 кг.
+                                  </div>
+                                  
+                                  <div class="notice red">
+                                    <img src="i/svg/warn.svg" alt=""/> Рюкзаки, пакеты, коробки, пляжные<br />
+                                    и спортивные сумки перевозятся в салоне <br />
+                                    самолета платно
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="clrfix"></div>
+                            </div>
+                            <div class="button">
+                              <div class="btn tr small" id="countBaggage">Выбрать</div>
+                            </div>
+                            <div class="arrow"></div>
+                          </div>
+
+                          <div class="element add">
+                            <div class="button add"></div>
+                            <div class="title">добавить багаж</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          <div class="btn tr small float-right same">выбрать такой же багаж для обратного пути</div>
+                          <div class="clrfix"></div>
+                        </div> 
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="baggage-passenger">
+                  <div class="header">
+                    <h3>Константинопольский Константин</h3>
+                    <div class="arrow"></div>
+                    <div class="clrfix"></div>
+                  </div>
+                  
+                  <div class="sub">
+                    <div class="info-section from">
+                      <div class="select">
+                        <div class="header">
+                          <span>Москва (Внуково)</span> VKO
+                          <img src="i/svg/plane.svg" alt=""/>
+                          <span>Ханты-Мансийск</span> HMA
+                        </div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="list">
+                        <div class="inner"></div>
+                        
+                        <div class="clrfix"></div>
+                        <div class="add-outer"> 
+                          <div class="addBaggage">
+                            <input type="hidden" name="baggageList-from-2" id="baggageList"/>
+                            <input type="hidden" name="totalBaggagePrice-from-2" id="totalBaggagePrice"/>
+                            
+                            <h3>Добавьте багаж (включены личные вещи в салон и 1 багажное место)</h3>
+                            <div class="body">
+                              <div class="column float-left">
+                                <div class="section" id="bag-0">
+                                  <div class="sec-title radios">багаж в салон</div>
+                                  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-3" id="baggage-salon-null-3" class="null" value="without" checked />
+                                      <label for="baggage-salon-null-3">без багажа в салоне</label>
+                                    </div>
+                                    <div class="float-right">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-3" id="baggage-salon-oneplace-3" value="oneplace"/>
+                                      <label for="baggage-salon-oneplace-3">багаж в салоне <br /> до 10 кг (1 место)</label>
+                                    </div>
+                                    <div class="float-right">1 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-3" id="baggage-salon-twoplace-3" value="twoplace"/>
+                                      <label for="baggage-salon-twoplace-3">багаж в салоне <br /> до 10 + 10 кг (2 места)</label>
+                                    </div>
+                                    <div class="float-right">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                                <div class="section baggage-salon">
+                                  <div class="sec-title">багаж в багажный салон</div>
+                                  
+                                  <div class="counter-line checkbox">
+                                    <div class="title">
+                                      <input type="radio" name="nobaggage-3" id="nobaggage-3" checked />
+                                      <label for="nobaggage-3">багаж до 10 кг<br /> (1 место)</label>
+                                    </div>
+                                    <div class="price">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-1">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 20 кг <br /> (1 место)</div>
+                                    <div class="price">2 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-2">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 32 кг <br /> (1 место)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-3">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж <br /> до 20 + 20 кг <br /> (2 местa)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="column float-right">
+                                <div class="section">
+                                  <div class="sec-title">специальный багаж и животные</div>
+                                  
+                                  <div class="counter-line checkbox" id="bag-pets">
+                                    <div class="title">
+                                      <input type="checkbox" name="pets" id="pets-3" value="1"/>
+                                      <label for="pets-3">домашнее животное <br />в переноске (1 шт до 8 кг)</label>
+                                    </div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-4">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">оружие <br />(1 шт, до 10 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-5">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">специальный <br />багаж <br />(весом до 20 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="notice">
+                                    Комплект спортивного оборудования<br />
+                                    (для горных видов спорта, хоккея, гольфа,<br />
+                                    серфинга), велосипед, музыкальные<br />
+                                    инструменты и прочий нестандартный<br />
+                                    багаж весом до 20 кг.
+                                  </div>
+                                  
+                                  <div class="notice red">
+                                    <img src="i/svg/warn.svg" alt=""/> Рюкзаки, пакеты, коробки, пляжные<br />
+                                    и спортивные сумки перевозятся в салоне <br />
+                                    самолета платно
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="clrfix"></div>
+                            </div>
+                            <div class="button">
+                              <div class="btn tr small" id="countBaggage">Выбрать</div>
+                            </div>
+                            <div class="arrow"></div>
+                          </div>
+
+                          <div class="element add">
+                            <div class="button add"></div>
+                            <div class="title">добавить багаж</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          <div class="clrfix"></div>
+                        </div> 
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="info-section back">
+                      <div class="select">
+                        <div class="header">
+                          <span>Ханты-Мансийск</span> HMA
+                          <img src="i/svg/plane.svg" alt=""/>
+                          <span>Москва (Внуково)</span> VKO
+                        </div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="list">
+                        <div class="inner"></div>
+                        
+                        <div class="clrfix"></div>
+                        <div class="add-outer"> 
+                          <div class="addBaggage">
+                            <input type="hidden" name="baggageList-back-2" id="baggageList"/>
+                            <input type="hidden" name="totalBaggagePrice-back-2" id="totalBaggagePrice"/>
+                            
+                            <h3>Добавьте багаж (включены личные вещи в салон и 1 багажное место)</h3>
+                            <div class="body">
+                              <div class="column float-left">
+                                <div class="section" id="bag-0">
+                                  <div class="sec-title radios">багаж в салон</div>
+                                  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-4" id="baggage-salon-null-4" class="null" value="without" checked />
+                                      <label for="baggage-salon-null-4">без багажа в салоне</label>
+                                    </div>
+                                    <div class="float-right">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>  
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-4" id="baggage-salon-oneplace-4" value="oneplace"/>
+                                      <label for="baggage-salon-oneplace-4">багаж в салоне <br /> до 10 кг (1 место)</label>
+                                    </div>
+                                    <div class="float-right">1 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="radio">
+                                    <div class="float-left">
+                                      <input type="radio" name="baggage-salon-4" id="baggage-salon-twoplace-4" value="twoplace"/>
+                                      <label for="baggage-salon-twoplace-4">багаж в салоне <br /> до 10 + 10 кг (2 места)</label>
+                                    </div>
+                                    <div class="float-right">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                                <div class="section baggage-salon">
+                                  <div class="sec-title">багаж в багажный салон</div>
+                                  
+                                  <div class="counter-line checkbox">
+                                    <div class="title">
+                                      <input type="radio" name="nobaggage-4" id="nobaggage-4" checked />
+                                      <label for="nobaggage-4">багаж до 10 кг<br /> (1 место)</label>
+                                    </div>
+                                    <div class="price">0 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-1">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 20 кг <br /> (1 место)</div>
+                                    <div class="price">2 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-2">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж до 32 кг <br /> (1 место)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-3">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">багаж <br /> до 20 + 20 кг <br /> (2 местa)</div>
+                                    <div class="price">4 598 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="column float-right">
+                                <div class="section">
+                                  <div class="sec-title">специальный багаж и животные</div>
+                                  
+                                  <div class="counter-line checkbox" id="bag-pets">
+                                    <div class="title">
+                                      <input type="checkbox" name="pets" id="pets-4" value="1"/>
+                                      <label for="pets-4">домашнее животное <br />в переноске (1 шт до 8 кг)</label>
+                                    </div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-4">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">оружие <br />(1 шт, до 10 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  <div class="counter-line">
+                                    <div class="counter" id="bag-5">
+                                      <div class="minus"></div>
+                                      <div class="count">0</div>
+                                      <div class="plus"></div>
+                                      <div class="clrfix"></div>
+                                    </div>
+                                    
+                                    <div class="title">специальный <br />багаж <br />(весом до 20 кг)</div>
+                                    <div class="price">3 998 руб</div>
+                                    <div class="clrfix"></div>
+                                  </div>
+                                  
+                                  <div class="notice">
+                                    Комплект спортивного оборудования<br />
+                                    (для горных видов спорта, хоккея, гольфа,<br />
+                                    серфинга), велосипед, музыкальные<br />
+                                    инструменты и прочий нестандартный<br />
+                                    багаж весом до 20 кг.
+                                  </div>
+                                  
+                                  <div class="notice red">
+                                    <img src="i/svg/warn.svg" alt=""/> Рюкзаки, пакеты, коробки, пляжные<br />
+                                    и спортивные сумки перевозятся в салоне <br />
+                                    самолета платно
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="clrfix"></div>
+                            </div>
+                            <div class="button">
+                              <div class="btn tr small" id="countBaggage">Выбрать</div>
+                            </div>
+                            <div class="arrow"></div>
+                          </div>
+
+                          <div class="element add">
+                            <div class="button add"></div>
+                            <div class="title">добавить багаж</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          <div class="btn tr small float-right same">выбрать такой же багаж для обратного пути</div>
+                          <div class="clrfix"></div>
+                        </div> 
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="total">
+                  <div class="line-dotted"></div>
+                  <div class="float-left">ИТОГО ЗА БАГАЖ</div>
+                  <div class="float-right"><span>0</span> руб</div>
+                  <div class="clrfix"></div>
+                </div>
+              </div>
+              
+              <div class="info insurance">
+                <h2>Страхование</h2>
+                
+                <div class="mess">
+                  <h3>
+                    Воспользуйтесь страховкой от невылета, <br />
+                    потери и порчи багажа или несчатного случая.
+                  </h3>
+                  
+                  <img src="i/svg/insurance-umbrella.svg" width="80px" alt=""/>
+                  <div class="text">
+                    Выплата до 5 000 рублей при задержке рейса; Защита багажа от задержки<br /> 
+                    и повреждения — 5 000 рублей; Защита от несчастного случая — 100 000 рублей.
+                  </div>
+                  <div class="notice">
+                    <div class="float-left">Узнайте подробнее о <a href="#">правилах страхования пассажиров.</a></div>
+                    <div class="float-right"><img src="i/svg/alpha-insurance-logo.svg" width="129px" alt=""/></div>
+                    <div class="clrfix"></div>
+                  </div>
+                </div>
+                
+                <div class="info-section">
+                  <div class="select">
+                    <div class="header">
+                      <span>Москва (Внуково)</span> VKO
+                      <img src="i/svg/plane.svg" alt=""/>
+                      <span>Ханты-Мансийск</span> HMA
+                           
+                      <div class="line">
+                        <input type="checkbox" name="insurance-from" id="insurance-1"/>
+                        <label for="insurance-1">Страхование на время полета</label>
+                        <span class="price"><span>398</span> руб</span>
+                      </div>
+                    </div>
+                    <div class="clrfix"></div>
+                  </div>
+                  
+                  <div class="select">
+                    <div class="header">
+                      <span>Москва (Внуково)</span> VKO
+                      <img src="i/svg/plane.svg" alt=""/>
+                      <span>Ханты-Мансийск</span> HMA
+                           
+                      <div class="line">
+                        <input type="checkbox" name="insurance-back" id="insurance-2"/>
+                        <label for="insurance-2">Страхование на время полета</label>
+                        <span class="price"><span>398</span> руб</span>
+                      </div>
+                    </div>
+                    <div class="clrfix"></div>
+                  </div>
+                </div>
+                
+                <div class="total">
+                  <div class="line-dotted"></div>
+                  <div class="float-left">ИТОГО ЗА СТРАХОВКУ</div>
+                  <div class="float-right"><span>0</span> руб</div>
+                  <div class="clrfix"></div>
+                </div>
+              </div>
+            
+            <div class="bottom-buttons">
+              <input type="button" value="вернуться" class="btn tr float-left" onclick="location.href='select.html'" />
+              <input type="submit" value="продолжить" class="btn float-right continue" />
+              <div class="clrfix"></div>
+            </div>
+          </div>
+          </form>
+          
+          <div class="column-right">
+            <div class="login-box">
+              <h3><img src="i/svg/user.svg" alt=""/> Есть личный кабинет?</h3>
+              <p>
+                Введите логин и пароль, чтобы использовать данные из профиля:
+              </p>
+              <div class="form">
+                <form action="">
+                  <div class="line"><input type="text" class="input-text" name="login" id="login" placeholder="Логин" /></div>
+                  <div class="line"><input type="password" class="input-text" name="pass" id="pass" placeholder="Пароль" /></div>
+                  <div class="line"><input type="submit" value="Войти" class="btn tr"/></div>
+                </form>
+              </div>
+              <p>
+                Если у вас еще нет кабинета,<br />
+                вы сможете создать его <br />
+                в процессе бронирования
+              </p>
+            </div>
+            
+            <div class="checklist-outer">
+              <div class="checklist">
+                <div class="section">
+                  <h3>Информация о полёте</h3>
+                </div>
+
+                <div class="direction from">
+                  <div class="flight">
+                    <div>7 окт, 15:30 - 19:30</div>
+                    <div><span>Ханты-Мансийск</span> HMA</div>
+                    <div><span>Москва</span> VKO</div>
+                  </div>
+                  
+                  <div class="section tickets-price open">
+                    <div class="prices head total">
+                      <div class="left"><h3>Перелёт</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>16 097</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list">
+                        <div>
+                          <div class="left">2 х взрослых</div>
+                          <div class="right"><span>8 998</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div>
+                          <div class="left">1 х детский</div>
+                          <div class="right"><span>1 099</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div class="child-company hide">
+                          <div class="left">Сопровождение<br /> ребенка (5-15 лет)</div>
+                          <div class="right"><span>6 000</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="total">
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="section baggage hide">
+                    <div class="prices head total">
+                      <div class="left"><h3>Багаж</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>0</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list"></div>
+                      
+                      <div class="total"> 
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>0</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="section insurance hide">
+                    <div class="prices head total">
+                      <div class="left"><h3>Страхование</h3></div>
+                      <div class="right"><span>0</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+                <div class="direction back">
+                  <div class="flight">
+                    <div>5 окт, 23:25 - 6 окт, 02:30</div>
+                    <div><span>Москва</span> VKO</div>
+                    <div><span>Ханты-Мансийск</span> HMA</div>
+                  </div>
+                  
+                  <div class="section tickets-price open">
+                    <div class="prices head total">
+                      <div class="left"><h3>Перелёт</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>16 097</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list">
+                        <div>
+                          <div class="left">2 х взрослых</div>
+                          <div class="right"><span>8 998</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div>
+                          <div class="left">1 х детский</div>
+                          <div class="right"><span>1 099</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div class="child-company hide">
+                          <div class="left">Сопровождение<br /> ребенка (5-15 лет)</div>
+                          <div class="right"><span>6 000</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="total">
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="section hide baggage">
+                    <div class="prices head total">
+                      <div class="left"><h3>Багаж</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>0</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list"></div>
+                      
+                      <div class="total"> 
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>0</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div> 
+                    </div>             
+                  </div>
+                  <div class="section insurance hide">
+                    <div class="prices head total">
+                      <div class="left"><h3>Страхование</h3></div>
+                      <div class="right"><span>0</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="section totals">
+                    <div class="prices">                    
+                      <div class="total">
+                        <div class="left">Сумма к оплате:</div>
+                        <div class="right"><span>35 998</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="clrfix"></div>
+        </div>
+      </div>
+    </content>
+    
+    <footer></footer>
+  </body>
+</html>

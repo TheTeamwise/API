@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Победа</title>
+    
+    <link rel="stylesheet" href="css/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    
+    <!--[if lte IE 8]> 
+      <script type="text/javascript" src="js/selectivizr-min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="header">        
+        <ul class="menu-steps">
+          <div>
+            <li class="done"><span>поиск билетов</span></li>
+            <li class="done"><span>выбор рейса</span></li>
+            <li class="done"><span>пассажиры</span></li>
+            <li class="done"><span>багаж</span></li>
+            <li class="done"><span>выбор места</span></li>
+            <li class="active"><span>оплата</span></li>
+          </div>
+          <div class="clrfix"></div>
+        </ul>
+      </div>
+    </header>
+    
+    <content>
+      <div id="content">
+        <h2>Подтверждение и оплата</h2>
+      
+        <form action="paymentcard.html" method="post" id="payment-form">
+          <div class="payment">  
+            <div class="column-left">
+              <div class="info-form">
+                <div class="line-field input-required">
+                  <span>Фамилия</span>
+                  <input type="text" name="lastname" id="lastname" class="input-text blue" />
+                </div>
+                <div class="line-field input-required">
+                  <span>Имя</span>
+                  <input type="text" name="firstname" id="firstname" class="input-text blue" />
+                </div>
+                <div class="line-field input-required">
+                  <span>адрес электронной почты</span>
+                  <input type="email" name="email" id="email" class="input-text blue" />
+                </div>
+                <div class="line-field input-required">
+                  <span>номер телефона</span>
+                  <input type="text" name="phone" id="phone" class="input-text blue phone" />
+                </div>
+                
+                <div class="clrfix"></div>
+                
+                <div class="check">
+                  <div class="line">
+                    <input type="checkbox" name="sms" id="sms"/>
+                    <label for="sms">Получать SMS об изменении статуса брони <span>30 руб</span></label>
+                  </div>
+                  <div class="line">
+                    <input type="checkbox" name="spoffer" id="spoffer"/>
+                    <label for="spoffer">Я хочу получать спецпредложения от Победы</label>
+                  </div>
+                  
+                  <div class="hr"></div>
+                  
+                  <div class="line">
+                    <input type="checkbox" name="signup" id="signup"/>
+                    <label for="signup">Я хочу зарегистрироваться на сайте Победы и сохранить свои данные</label>
+                  </div>
+                </div>
+
+                <div class="clrfix"></div>
+              </div>
+              
+              <h3>Выберите способ оплаты</h3>
+              
+              <div class="pay">
+                <div class="element">
+                  <div class="check"><input type="radio" name="pay" id="airport"/></div>
+                  <div class="pic"><div class="in"><img src="i/svg/pobeda.svg" width="125px" alt=""/></div></div>
+                  <div class="info">
+                    <h3>Терминалы в аэропорту</h3>
+                    <div class="descr">
+                      Оплата производится в терминалах Sprintnet в аэропорту Внуково.<br />
+                      Сервисный сбор за обработку платежа не взимается.
+                    </div>
+                  </div>
+                  <div class="percent">0%</div>
+                  <div class="clrfix"></div>
+                </div>
+                <div class="element">
+                  <div class="check"><input type="radio" name="pay" id="bank" value=""/></div>
+                  <div class="pic">
+                    <div class="in">
+                      <img src="i/svg/visa.svg" width="51px" alt=""/>
+                      <img src="i/svg/mastercard.svg" width="56px" alt=""/>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <h3>Банковская карта</h3>
+                    <div class="descr">
+                      Интернет-эквайринг осуществляет ОАО "Альфа-Банк".<br />
+                      Взимается сервисный сбор за обработку платежа 2%.
+                    </div>
+                  </div>
+                  <div class="percent">2%</div>
+                  <div class="clrfix"></div>
+                </div>
+                <div class="element">
+                  <div class="check"><input type="radio" name="pay" id="est"/></div>
+                  <div class="pic"><div class="in"><img src="i/euroset.png" alt=""/></div></div>
+                  <div class="info">
+                    <h3>Евросеть</h3>
+                    <div class="descr">
+                      Оплата производится в любом салоне Евросети.<br />
+                      Взимается сервисный сбор за обработку платежа 3%
+                    </div>
+                  </div>
+                  <div class="percent">3%</div>
+                  <div class="clrfix"></div> 
+                </div>
+                <div class="element">
+                  <div class="check"><input type="radio" name="pay" id="qiwi"/></div>
+                  <div class="pic"><div class="in"><img src="i/svg/qiwi.svg" width="43px" alt=""/></div></div>
+                  <div class="info">
+                    <h3>Терминалы и сервисы QIWI</h3>
+                    <div class="descr">
+                      Оплата производится в любом терминале QIWI.<br />
+                      Взимается сервисный сбор за обработку платежа 4%.
+                    </div>
+                  </div>
+                  <div class="percent">4%</div>
+                  <div class="clrfix"></div>
+                </div>
+              </div>
+              
+              <div class="agree">
+                Нажимая на кнопку «Подтвердить», Вы подтверждаете брнирование выбранных услуг и соглашаетесь<br />
+                с <a href="#">Правилами перевозки пассажиров и багажа</a> и <a href="#">Правилами применения тарифов</a> ООО «Авиакомпания «Победа»
+              </div>
+              
+              <div class="bottom">
+                <input type="button" class="btn tr float-left" onclick="location.href='seat.html'" value="Вернуться">
+                <input type="submit" class="btn float-right" value="Оплатить">
+                <div class="clrfix"></div>
+              </div>
+            </div>
+            
+            <div class="column-right">
+              <div class="checklist-outer">
+                <div class="checklist">
+                  <div class="section">
+                    <h3>Информация о полёте</h3>
+                  </div>
+
+                  <div class="direction from">
+                    <div class="flight">
+                      <div>7 окт, 15:30 - 19:30</div>
+                      <div><span>Ханты-Мансийск</span> HMA</div>
+                      <div><span>Москва</span> VKO</div>
+                    </div>
+                    
+                    <div class="section tickets-price open">
+                      <div class="prices head total">
+                        <div class="left"><h3>Перелёт</h3></div>
+                        <div class="arrow"></div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="prices sub">
+                        <div class="list">
+                          <div>
+                            <div class="left">2 х взрослых</div>
+                            <div class="right"><span>8 998</span> руб</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          
+                          <div>
+                            <div class="left">1 х детский</div>
+                            <div class="right"><span>1 099</span> руб</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          
+                          <div>
+                            <div class="left">Сопровождение<br /> ребенка (5-15 лет)</div>
+                            <div class="right"><span>6 000</span> руб</div>
+                            <div class="clrfix"></div>
+                          </div>
+                        </div>
+                        
+                        <div class="total">
+                          <div class="left">Итого:</div>
+                          <div class="right"><span>16 097</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="section places">
+                      <div class="prices head total">
+                        <div class="left"><h3>Выбор мест</h3></div>
+                        <div class="arrow hide"></div>
+                        <div class="right"><span>0</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="section baggage">
+                      <div class="prices head total">
+                        <div class="left"><h3>Багаж</h3></div>
+                        <div class="arrow hide"></div>
+                        <div class="right"><span>2 570</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="prices sub">
+                        <div class="list"></div>
+                        
+                        <div class="total"> 
+                          <div class="left">Итого:</div>
+                          <div class="right"><span>2 570</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="section">
+                      <div class="prices head total insurance">
+                        <div class="left"><h3>Страхование</h3></div>
+                        <div class="right"><span>357</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="direction back">
+                    <div class="flight">
+                      <div>5 окт, 23:25 - 6 окт, 02:30</div>
+                      <div><span>Москва</span> VKO</div>
+                      <div><span>Ханты-Мансийск</span> HMA</div>
+                    </div>
+                    
+                    <div class="section tickets-price open">
+                      <div class="prices head total">
+                        <div class="left"><h3>Перелёт</h3></div>
+                        <div class="arrow"></div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="prices sub">
+                        <div class="list">
+                          <div>
+                            <div class="left">2 х взрослых</div>
+                            <div class="right"><span>8 998</span> руб</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          
+                          <div>
+                            <div class="left">1 х детский</div>
+                            <div class="right"><span>1 099</span> руб</div>
+                            <div class="clrfix"></div>
+                          </div>
+                          
+                          <div>
+                            <div class="left">Сопровождение<br /> ребенка (5-15 лет)</div>
+                            <div class="right"><span>6 000</span> руб</div>
+                            <div class="clrfix"></div>
+                          </div>
+                        </div>
+                        
+                        <div class="total">
+                          <div class="left">Итого:</div>
+                          <div class="right"><span>16 097</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="section places">
+                      <div class="prices head total">
+                        <div class="left"><h3>Выбор мест</h3></div>
+                        <div class="arrow hide"></div>
+                        <div class="right"><span>0</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="section baggage">
+                      <div class="prices head total">
+                        <div class="left"><h3>Багаж</h3></div>
+                        <div class="arrow hide"></div>
+                        <div class="right"><span>2 570</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                      
+                      <div class="prices sub">
+                        <div class="list"></div>
+                        
+                        <div class="total"> 
+                          <div class="left">Итого:</div>
+                          <div class="right"><span>0</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div> 
+                      </div>             
+                    </div>
+                    <div class="section">
+                      <div class="prices head total insurance">
+                        <div class="left"><h3>Страхование</h3></div>
+                        <div class="right"><span>357</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    <div class="section">
+                      <div class="prices head total insurance">
+                        <h3>Дополнительные услуги</h3>
+                      </div>
+                      <div class="prices">
+                        <div class="left">SMS</div>
+                        <div class="right"><span>60</span> руб</div>
+                        <div class="clrfix"></div>
+                        
+                        <div class="left">Сбор за обработку<br />платежа</div>
+                        <div class="right"><span>1 069</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="section totals">
+                      <div class="prices">                    
+                        <div class="total">
+                          <div class="left">Сумма к оплате:</div>
+                          <div class="right"><span>35 998</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clrfix"></div>
+          </div>
+        </form>
+      </div>
+    </content>
+ 
+    <footer></footer>
+  </body>
+</html>

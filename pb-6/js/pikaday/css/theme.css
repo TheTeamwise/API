@@ -1,0 +1,217 @@
+
+.pika-single.light-theme {
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid #cceaf7;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-family: 'helveticaneue';
+    padding: 0 8px;
+    top: -5px !important;
+    position:absolute !important;
+    z-index: 800;
+}
+
+.pika-bottom-button {
+  border-top: 1px solid #cceaf7;
+  margin-top: 2px;
+  padding: 20px 25px;
+}
+
+.pika-single.light-theme:before {
+  content: '';
+  width: 20px;
+  height: 11px;
+  background: url(../../../i/svg/box-arrow-flip.svg) no-repeat;
+  transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  top: -11px;
+  left: 150px;
+  position:absolute;
+  z-index: 600;
+}
+.pika-single.light-theme.end:before {
+  right: 150px;
+  left: auto;
+}
+
+.light-theme .pika-label {
+  color: #0098d6;
+  font-weight: 700;
+  text-transform:uppercase;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.light-theme .pika-prev,
+.light-theme .is-rtl .pika-next,
+.light-theme .pika-next,
+.light-theme .is-rtl .pika-prev {
+  width: 16px;
+  height: 16px;
+  background: url(../../../i/svg/ico-toggle.svg) no-repeat;
+  cursor: pointer;
+  position:absolute;
+  right: 14px;
+  top: 7px;
+  opacity: 1;
+  transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+
+.light-theme .pika-prev,
+.light-theme .is-rtl .pika-next {
+  background-image:url(../../../i/svg/ico-toggle.svg) no-repeat;
+  transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  right: 0;
+  left: 14px;
+}
+.light-theme .pika-prev:hover,
+.light-theme .is-rtl .pika-next:hover,
+.light-theme .pika-next:hover,
+.light-theme .is-rtl .pika-prev:hover {
+  opacity: 0.6;
+}
+
+.light-theme .pika-table th {
+  color: #99d6ef;
+  font-weight: 700;
+  text-transform:uppercase;
+}
+
+.light-theme .pika-button {
+  color: #0f9fd9;
+  background: none;
+  text-align:center;
+  height: 27px;
+  font-weight: normal;
+}
+.light-theme .pika-button:hover {
+  background: none;
+  opacity: 0.7;
+}
+
+.light-theme .pika-week {
+    color: #999;
+}
+
+.light-theme .is-today .pika-button {
+  color: #33aaff;
+}
+
+.light-theme .is-startrange .pika-button,
+.light-theme .is-endrange .pika-button,
+.light-theme .is-selected .pika-button:hover,
+.light-theme .is-selected .pika-button {
+  color: #fff;
+  width: 27px;
+  height: 27px;
+  margin: 0 auto;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: #0098d6 !important;
+  position:relative;
+  z-index: 200;
+}
+
+.light-theme .is-empty, 
+.light-theme .is-inrange, 
+.light-theme .is-endrange { 
+  position:relative;
+}
+.light-theme .is-startrange + .is-inrange:after {
+  content: '';
+  width: 20px;
+  height: 27px;
+  position:absolute;
+  left: -20px;
+  background: #bee2f4;
+  top: 0;
+  z-index: 30;
+}
+.light-theme .is-startrange + .is-endrange:after,
+.light-theme .is-inrange + .is-endrange:after {
+  content: '';
+  width: 20px;
+  height: 27px;
+  position:absolute;
+  left: 0px;
+  background: #bee2f4;
+  top: 0;
+  z-index: 30;
+}
+.light-theme .is-startrange + .is-endrange:after {
+  width: 40px;
+  left: -20px;
+}
+.light-theme .is-inrange + .is-empty:after {
+  content: '';
+  border-radius: 0 30px 30px 0;
+  width: 20px;
+  height: 27px;
+  position:absolute;
+  left: -10px;
+  background: #bee2f4;
+  top: 0;
+  z-index: 30;
+}
+
+.light-theme .is-empty  + .is-endrange:after,
+.light-theme .is-endrange:first-child:after {
+  display: none;
+}
+
+.light-theme .is-inrange .pika-button {
+    background: #bee2f4;
+    border-radius:  0px;
+    -moz-border-radius:  0px;
+    -webkit-border-radius:  0px;
+}
+.light-theme .is-empty  + .is-inrange .pika-button,
+.light-theme .is-inrange:first-child .pika-button {
+  border-radius: 30px 0 0 30px;
+  -moz-border-radius: 30px 0 0 30px;
+  -webkit-border-radius: 30px 0 0 30px;
+}
+
+
+.light-theme .is-inrange:last-child .pika-button {
+  border-radius: 0 30px 30px 0;
+  -moz-border-radius: 0 30px 30px 0;
+  -webkit-border-radius: 0 30px 30px 0;
+}
+
+.light-theme .is-empty:nth-child(6)  + .is-inrange .pika-button {
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+
+.light-theme .is-disabled .pika-button {
+  color: #b3e1f4;
+  opacity: 1;
+}
+
+.light-theme .pika-lendar {
+  width: 300px;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+.light-theme .pika-lendar:nth-child(2) {
+  margin-right: 0;
+}

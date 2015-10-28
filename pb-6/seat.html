@@ -1,0 +1,875 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Победа</title>
+    
+    <link rel="stylesheet" href="css/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="js/tipsy/css/tipsy.css" type="text/css" />
+    
+    <!--[if lte IE 8]> 
+      <script type="text/javascript" src="js/selectivizr-min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/tipsy/js/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    
+    
+  </head>
+  <body>
+    
+    <header>
+      <div id="header">        
+        <ul class="menu-steps blue">
+          <div>
+            <li class="done"><span>поиск билетов</span></li>
+            <li class="done"><span>выбор рейса</span></li>
+            <li class="done"><span>пассажиры</span></li>
+            <li class="done"><span>багаж</span></li>
+            <li class="active"><span>выбор места</span></li>
+            <li><span>оплата</span></li>
+          </div>
+          <div class="clrfix"></div>
+        </ul>
+      </div>
+    </header>
+    
+    <content>
+      <div id="content">
+        <h2>Выбор места</h2>
+        
+        <div class="seats">        
+          <form action="payment.html" method="post">  
+            <div class="column-left">
+              <div class="left">
+                <div class="left-inner">
+                <div class="section">
+                  <h3>Туда</h3>
+                  <div class="path">
+                    Москва <img src="i/svg/arrow-right-dark.svg" width="5px" alt=""/>
+                    Ханты-Мансийск
+                  </div>
+                  
+                  <div class="passengers">
+                    <input type="hidden" name="seats-to" id="seats-to" value='{"2F":"busy female","2D":"busy male","2A":"busy","2B":"busy","2C":"busy","3E":"busy male","9E":"busy female"}' />
+                    
+                    <div class="passenger selected">
+                      <input type="hidden" name="to-passenger-1" value="8D"/>
+                      <div class="name">Константин Константинопольский</div>
+                      <div class="place" data-free="8D">
+                        <span>8D</span>
+                        <div class="delPay"></div>
+                        <div class="clrfix"></div>
+                      </div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="passenger">
+                      <input type="hidden" name="to-passenger-2" value="10F"/>
+                      <div class="name">Александра Константинопольская</div>
+                      <div class="place" data-free="10F">
+                        <span>10F</span>
+                        <div class="delPay"></div>
+                        <div class="clrfix"></div>
+                      </div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="passenger">
+                      <input type="hidden" name="to-passenger-3" value="11D"/>
+                      <div class="name">Федоров Иван</div>
+                      <div class="place" data-free="11D">
+                        <span>11D</span>
+                        <div class="delPay"></div>
+                        <div class="clrfix"></div>
+                      </div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+                <div class="section">
+                  <h3>Обратно</h3>
+                  <div class="path">
+                    Москва <img src="i/svg/arrow-right-dark.svg" width="5px" alt=""/>
+                    Ханты-Мансийск
+                  </div>
+                  
+                  <div class="passengers">
+                    <input type="hidden" name="seats-back" id="seats-back" value='{"1A":"busy","1B":"busy","1C":"busy","5D":"busy male","5E":"busy female","9E":"busy male"}' />
+                    <div class="passenger">
+                      <input type="hidden" name="back-passenger-1" value="4E"/>
+                      <div class="name">Константин Константинопольский</div>
+                      <div class="place" data-free="4E">
+                        <span>4E</span>
+                        <div class="delPay"></div>
+                        <div class="clrfix"></div>
+                      </div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="passenger">
+                      <input type="hidden" name="back-passenger-2" value="8C"/>
+                      <div class="name">Александра Константинопольская</div>
+                      <div class="place" data-free="8C">
+                        <span>8C</span>
+                        <div class="delPay"></div>
+                        <div class="clrfix"></div>
+                      </div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="passenger">
+                      <input type="hidden" name="back-passenger-3" value="22E"/>
+                      <div class="name">Федоров Иван</div>
+                      <div class="place" data-free="22E">
+                        <span>22E</span>
+                        <div class="delPay"></div>
+                        <div class="clrfix"></div>
+                      </div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+                <div class="legend">
+                  <div class="icons">
+                    <div class="seat-icon selected float-right"></div>
+                    <div class="clrfix"></div>
+                  </div>
+                  <div class="title"><span>— выбрано</span></div>
+                  <div class="clrfix"></div>
+                  
+                  <div class="icons">
+                    <div class="seat-icon companion float-right"></div>
+                    <div class="clrfix"></div>
+                  </div>
+                  <div class="title"><span>— попутчик</span></div>
+                  <div class="clrfix"></div>
+                  
+                  <div class="icons">
+                    <div class="seat-icon busy float-right"></div>
+                    <div class="seat-icon busy female float-right"></div>
+                    <div class="seat-icon busy male float-right"></div>
+                    <div class="clrfix"></div>
+                  </div>
+                  <div class="title"><span>— место занято</span></div>
+                  <div class="clrfix"></div>
+                  
+                  <div class="icons">
+                    <div class="seat-icon float-right"></div>
+                    <div class="clrfix"></div>
+                  </div>
+                  <div class="title"><span>— доступно</span></div>
+                  <div class="clrfix"></div>
+                  
+                  <div class="icons">
+                    <div class="seat-icon long float-right"><div class="seat-icon"></div></div>
+                    <img src="i/svg/xl.svg" width="14px" class="float-right" alt=""/>
+                    <div class="clrfix"></div>
+                  </div>
+                  <div class="title"><span>— место с увеличенным пространством для ног</span></div>
+                  <div class="clrfix"></div>
+                </div>
+              </div>
+              </div>
+              
+              <div class="right">
+                <button class="btn tr small" id="continue">продолжить без выбора места</button>
+                
+                <div class="plane-seats">
+                  <div class="wing left"></div>
+                  <div class="wing right"></div>
+                  
+                  <div class="section">
+                    <div class="price">399 руб</div>
+                    <div class="letters">
+                      <div>a</div>
+                      <div>b</div>
+                      <div>c</div>
+                      <div class="space"></div>
+                      <div>d</div>
+                      <div>e</div>
+                      <div>f</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">1</div>
+                      <div class="seat"><div id="1A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="1B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="1C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"></div>
+                      <div class="seat"></div>
+                      <div class="seat"></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">2</div>
+                      <div class="seat"><div id="2A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="2B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="2C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div class="seat-icon long"><div id="2D" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="2E" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="2F" class="seat-icon"></div></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  <div class="section fast">
+                    <div class="price">399 руб</div>
+                    <div class="letters">
+                      <div>a</div>
+                      <div>b</div>
+                      <div>c</div>
+                      <div class="space"></div>
+                      <div>d</div>
+                      <div>e</div>
+                      <div>f</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">3</div>
+                      <div class="seat"><div id="3A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="3B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="3C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="3D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="3E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="3F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">4</div>
+                      <div class="seat"><div id="4A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="4B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="4C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="4D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="4E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="4F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">5</div>
+                      <div class="seat"><div id="5A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="5B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="5C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="5D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="5E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="5F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">6</div>
+                      <div class="seat"><div id="6A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="6B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="6C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="6D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="6E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="6F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">7</div>
+                      <div class="seat"><div id="7A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="7B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="7C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="7D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="7E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="7F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">8</div>
+                      <div class="seat"><div id="8A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="8B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="8C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="8D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="8E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="8F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">9</div>
+                      <div class="seat"><div id="9A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="9B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="9C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="9D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="9E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="9F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">10</div>
+                      <div class="seat"><div id="10A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="10B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="10C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="10D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="10E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="10F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">11</div>
+                      <div class="seat"><div id="11A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="11B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="11C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="11D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="11E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="11F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  <div class="section">
+                    <div class="price">199 руб</div>
+                    <div class="letters">
+                      <div>a</div>
+                      <div>b</div>
+                      <div>c</div>
+                      <div class="space"></div>
+                      <div>d</div>
+                      <div>e</div>
+                      <div>f</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">12</div>
+                      <div class="seat"><div id="12A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="12B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="12C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="12D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="12E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="12F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">13</div>
+                      <div class="seat"><div id="13A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="13B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="13C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="13D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="13E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="13F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">14</div>
+                      <div class="seat"><div id="14A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="14B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="14C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="14D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="14E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="14F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  <div class="section comfort">
+                    <div class="price">
+                      399 руб
+                      <div>Увеличенное место для ног</div>
+                    </div>
+                    <div class="letters">
+                      <div>a</div>
+                      <div>b</div>
+                      <div>c</div>
+                      <div class="space"></div>
+                      <div>d</div>
+                      <div>e</div>
+                      <div>f</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row allLong">
+                      <div class="num">15</div>
+                      <div class="seat"><div class="seat-icon long"><div id="15A" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="15B" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="15C" class="seat-icon"></div></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div class="seat-icon long"><div id="15D" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="15E" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="15F" class="seat-icon"></div></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row allLong">
+                      <div class="num">16</div>
+                      <div class="seat"><div class="seat-icon long"><div id="16A" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="16B" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="16C" class="seat-icon"></div></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div class="seat-icon long"><div id="16D" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="16E" class="seat-icon"></div></div></div>
+                      <div class="seat"><div class="seat-icon long"><div id="16F" class="seat-icon"></div></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  <div class="section">
+                    <div class="price">199 руб</div>
+                    <!--<div class="letters">
+                      <div>a</div>
+                      <div>b</div>
+                      <div>c</div>
+                      <div class="space"></div>
+                      <div>d</div>
+                      <div>e</div>
+                      <div>f</div>
+                      <div class="clrfix"></div>
+                    </div>-->
+                    <div class="seat-row">
+                      <div class="num">17</div>
+                      <div class="seat"><div id="17A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="17B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="17C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="17D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="17E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="17F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">18</div>
+                      <div class="seat"><div id="18A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="18B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="18C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="18D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="18E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="18F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">19</div>
+                      <div class="seat"><div id="19A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="19B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="19C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="19D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="19E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="19F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">20</div>
+                      <div class="seat"><div id="20A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="20B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="20C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="20D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="20E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="20F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">21</div>
+                      <div class="seat"><div id="21A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="21B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="21C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="21D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="21E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="21F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  <div class="section">
+                    <div class="price">399 руб</div>
+                    <div class="letters">
+                      <div>a</div>
+                      <div>b</div>
+                      <div>c</div>
+                      <div class="space"></div>
+                      <div>d</div>
+                      <div>e</div>
+                      <div>f</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">22</div>
+                      <div class="seat"><div id="22A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="22B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="22C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="22D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="22E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="22F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">23</div>
+                      <div class="seat"><div id="23A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="23B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="23C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="23D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="23E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="23F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">24</div>
+                      <div class="seat"><div id="24A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="24B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="24C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="24D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="24E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="24F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">25</div>
+                      <div class="seat"><div id="25A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="25B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="25C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="25D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="25E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="25F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">26</div>
+                      <div class="seat"><div id="26A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="26B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="26C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="26D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="26E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="26F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">27</div>
+                      <div class="seat"><div id="27A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="27B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="27C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="27D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="27E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="27F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">28</div>
+                      <div class="seat"><div id="28A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="28B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="28C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="28D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="28E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="28F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">29</div>
+                      <div class="seat"><div id="29A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="29B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="29C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="29D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="29E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="29F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">30</div>
+                      <div class="seat"><div id="30A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="30B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="30C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="30D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="30E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="30F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">31</div>
+                      <div class="seat"><div id="31A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="31B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="31C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="31D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="31E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="31F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">32</div>
+                      <div class="seat"><div id="32A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="32B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="32C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="32D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="32E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="32F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">33</div>
+                      <div class="seat"><div id="33A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="33B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="33C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="33D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="33E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="33F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                    <div class="seat-row">
+                      <div class="num">34</div>
+                      <div class="seat"><div id="34A" class="seat-icon"></div></div>
+                      <div class="seat"><div id="34B" class="seat-icon"></div></div>
+                      <div class="seat"><div id="34C" class="seat-icon"></div></div>
+                      <div class="space"></div>
+                      <div class="seat"><div id="34D" class="seat-icon"></div></div>
+                      <div class="seat"><div id="34E" class="seat-icon"></div></div>
+                      <div class="seat"><div id="34F" class="seat-icon"></div></div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="clrfix"></div>
+
+              <div class="bottom-buttons">
+                <input type="button" value="вернуться" class="btn tr float-left" onclick="location.href='pax.html'" />
+                <input type="submit" value="оплатить" class="btn float-right" />
+                <div class="clrfix"></div>
+              </div>
+            </div>
+          </form>
+          
+          <div class="column-right">
+            <div class="login-box">
+              <h3><img src="i/svg/user.svg" alt=""/> Есть личный кабинет?</h3>
+              <p>
+                Введите логин и пароль, чтобы использовать данные из профиля:
+              </p>
+              <div class="form">
+                <form action="">
+                  <div class="line"><input type="text" class="input-text" name="login" id="login" placeholder="Логин" /></div>
+                  <div class="line"><input type="password" class="input-text" name="pass" id="pass" placeholder="Пароль" /></div>
+                  <div class="line"><input type="submit" value="Войти" class="btn tr"/></div>
+                </form>
+              </div>
+              <p>
+                Если у вас еще нет кабинета,<br />
+                вы сможете создать его <br />
+                в процессе бронирования
+              </p>
+            </div>
+            
+            <div class="checklist-outer">
+              <div class="checklist">
+                <div class="section">
+                  <h3>Информация о полёте</h3>
+                </div>
+
+                <div class="direction from">
+                  <div class="flight">
+                    <div>7 окт, 15:30 - 19:30</div>
+                    <div><span>Ханты-Мансийск</span> HMA</div>
+                    <div><span>Москва</span> VKO</div>
+                  </div>
+                  
+                  <div class="section tickets-price open">
+                    <div class="prices head total">
+                      <div class="left"><h3>Перелёт</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>16 097</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list">
+                        <div>
+                          <div class="left">2 х взрослых</div>
+                          <div class="right"><span>8 998</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div>
+                          <div class="left">1 х детский</div>
+                          <div class="right"><span>1 099</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div>
+                          <div class="left">Сопровождение<br /> ребенка (5-15 лет)</div>
+                          <div class="right"><span>6 000</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="total">
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="section places">
+                    <div class="prices head total">
+                      <div class="left"><h3>Выбор мест</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>6 097</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list">
+                        <div>
+                          <div class="left">2 х взрослых</div>
+                          <div class="right"><span>8 998</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="total">
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="section baggage">
+                    <div class="prices head total">
+                      <div class="left"><h3>Багаж</h3></div>
+                      <div class="arrow hide"></div>
+                      <div class="right"><span>2 570</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list"></div>
+                      
+                      <div class="total"> 
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>2 570</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="section">
+                    <div class="prices head total insurance">
+                      <div class="left"><h3>Страхование</h3></div>
+                      <div class="right"><span>357</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+                <div class="direction back">
+                  <div class="flight">
+                    <div>5 окт, 23:25 - 6 окт, 02:30</div>
+                    <div><span>Москва</span> VKO</div>
+                    <div><span>Ханты-Мансийск</span> HMA</div>
+                  </div>
+                  
+                  <div class="section tickets-price open">
+                    <div class="prices head total">
+                      <div class="left"><h3>Перелёт</h3></div>
+                      <div class="arrow"></div>
+                      <div class="right"><span>16 097</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list">
+                        <div>
+                          <div class="left">2 х взрослых</div>
+                          <div class="right"><span>8 998</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div>
+                          <div class="left">1 х детский</div>
+                          <div class="right"><span>1 099</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                        
+                        <div>
+                          <div class="left">Сопровождение<br /> ребенка (5-15 лет)</div>
+                          <div class="right"><span>6 000</span> руб</div>
+                          <div class="clrfix"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="total">
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>16 097</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="section places">
+                    <div class="prices head total">
+                      <div class="left"><h3>Выбор мест</h3></div>
+                      <div class="arrow hide"></div>
+                      <div class="right"><span>0</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="section baggage">
+                    <div class="prices head total">
+                      <div class="left"><h3>Багаж</h3></div>
+                      <div class="arrow hide"></div>
+                      <div class="right"><span>2 570</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                    
+                    <div class="prices sub">
+                      <div class="list"></div>
+                      
+                      <div class="total"> 
+                        <div class="left">Итого:</div>
+                        <div class="right"><span>0</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div> 
+                    </div>             
+                  </div>
+                  <div class="section">
+                    <div class="prices head total insurance">
+                      <div class="left"><h3>Страхование</h3></div>
+                      <div class="right"><span>357</span> руб</div>
+                      <div class="clrfix"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="section totals">
+                    <div class="prices">                    
+                      <div class="total">
+                        <div class="left">Сумма к оплате:</div>
+                        <div class="right"><span>35 998</span> руб</div>
+                        <div class="clrfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="clrfix"></div>
+        </div>
+      </div>
+    </content>
+    
+    <footer></footer>
+  </body>
+</html>
